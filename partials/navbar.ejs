@@ -1,0 +1,21 @@
+<%#
+	Parameters
+	==========
+
+	.search : string?
+		Text to populate in the search bar by default.
+
+%>
+<nav>
+	<h1>
+		<a href="/">
+			Is It In
+		</a>
+	</h1>
+	<form action="/search" method="GET" target="_blank">
+		<input
+			type="search" name="q" value="<%= p_navbar.search ?? "" %>" placeholder="Look up a feature" spellcheck=false
+			aria-label="Look up a feature"
+		>
+	</form>
+</nav>

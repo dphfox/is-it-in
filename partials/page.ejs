@@ -1,0 +1,40 @@
+<%#
+	Parameters
+	==========
+
+	.title : string?
+		Text to include in the name of the page (in the tab only).
+
+	.search : string?
+		Text to populate in the search bar by default.
+
+	.content : string
+		Path to the file which should be included as main page content.
+
+%>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			<%= (p_page.title != null ? (p_page.title + " - ") : "") + "Is It In" %>
+		</title>
+	</head>
+	<body>
+		<%-
+			include(
+				"partials/navbar.ejs",
+				{
+					p_navbar: {
+						search: p_page.search
+					}
+				}
+			)
+		%>
+		<main>
+			<%- include(p_page.content) %>
+		</main>
+		<%- include("partials/footer.ejs") %>
+	</body>
+</html>
